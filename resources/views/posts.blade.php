@@ -14,8 +14,11 @@
 <?php foreach ($posts as $post) : ?>
 
 <article>
-        <?= $post; ?>
+    <h1>
+            <?= $post->title ?>
+    </h1>
+    <p> <?= $post->body ?></p>
 </article>
-<?php endforeach; ?>
+<?php endforeach ?>
 </body>
 </html>
