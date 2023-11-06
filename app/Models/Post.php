@@ -36,6 +36,7 @@
 
         public static function all()
         {
+            //TODO
             return cache()->rememberForever('posts.all', function () {
                 return collect(File::files(resource_path("posts")))->map(fn($file) => YamlFrontMatter::parseFile($file))
                     ->map(fn($document) => new Post(
