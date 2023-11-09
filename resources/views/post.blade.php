@@ -10,9 +10,14 @@
     <title>Document</title>
 </head>
 <body>
-<h1>Hello world</h1>
+<h1>
+    {{$post ->title}}
+</h1>
+<div>
+    {!! $post->body !!}
+</div>
 <article>
-    <?= $post; ?>
+
 </article>
 <a href="/">go back</a>
 </body>

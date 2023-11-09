@@ -10,15 +10,16 @@
     <title>Document</title>
 </head>
 <body>
+@foreach($posts as $post)
+    <article>
+        <h1>
+            <a href="/posts/<?= $post->slug; ?>">
+                {{$post ->title}}
 
-<?php foreach ($posts as $post) : ?>
-
-<article>
-    <h1>
-            <?= $post->title ?>
-    </h1>
-    <p> <?= $post->body ?></p>
-</article>
-<?php endforeach ?>
+            </a>
+        </h1>
+        <p>{{$post->excerpt}}</p>
+    </article>
+@endforeach
 </body>
 </html>
