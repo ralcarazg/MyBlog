@@ -1,5 +1,6 @@
 <?php
 
+    use App\Models\Category;
     use App\Models\Post;
     use Illuminate\Support\Facades\Route;
 
@@ -20,9 +21,15 @@
         ]);
     });
 
-    Route::get('posts/{post}', function ($slug) {
+    Route::get('posts/{post:slug}', function (Post $post) { // Post::where('slug', post)
         return view('post', [
-            'post' => Post::findOrFail($slug)
+            'post' => $post
+        ]);
+    });
+
+    Route::get('categories/{category:slug}', function (Category $category) {
+        return view('posts', [
+            'posts' => $category->posts
         ]);
     });
 
