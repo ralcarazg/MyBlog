@@ -9,6 +9,8 @@
     {
         use HasFactory;
 
+        protected $with = ['category', 'author'];
+
         protected $fillable = ['title', 'excerpt', 'body'];
         protected $guarded = ['id'];
 
@@ -17,5 +19,10 @@
         {
             // hasOne, HasMany, belongsTo, belongsToMany;
             return $this->belongsTo(Category::class);
+        }
+
+        public function author()
+        {
+            return $this->belongsTo(User::class, 'user_id');
         }
     }
